@@ -35,10 +35,37 @@ public class EvaluasiPrektikum {
                     break;
                 case 2:
                     System.out.print("Masukkan Nama Item Belanjaan yang Akan Dihapus : ");
+                    String hapusItem = input.nextLine();
 
+                    int index = Nama.indexOf(hapusItem);
 
-                    System.out.println("Tidak ");
+                    if (index != -1) {
+                        Nama.remove(index);
+                        Harga.remove(index);
+                        System.out.println("Itema Belanjaan Telah Dihapus!");
+                    } else {
+                        System.out.println("Tidak ada item yang di hapus, harap masukkan nama item yang benar!");
+                    }
+                case 3:
+                    System.out.println("Seluruh Item");
+                    System.out.println("==============");
+                    for (int i = 0; i < Nama.size(); i++) {
+                        System.out.println(Nama.get(i) + " - " + Harga.get(i));
+                    }
+                case 4:
+                    System.out.println("Masukkan Nama Item Belanjaan yang Dicari: ");
+                    String cariItem = input.nextLine();
+
+                    int indexx = Nama.indexOf(cariItem);
+
+                    if (indexx != -1) {
+                        System.out.println(Nama.get(indexx) + " - " + Harga.get(indexx));
+                    } else {
+                        System.out.println("Tidak ada item yang di hapus, harap masukkan nama item yang benar!");
+                    }
+                default:
+                    System.out.println("Nomor yang Anda Masukkan Tidak Valid!!");
             }
-        }
+        }while (pilihan !=0);
     }
 }
