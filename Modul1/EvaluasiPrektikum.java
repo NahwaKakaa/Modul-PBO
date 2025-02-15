@@ -16,6 +16,7 @@ public class EvaluasiPrektikum {
             System.out.println("1. Tambah Item Belanjaan");
             System.out.println("2. Hapus Item Belanjaan");
             System.out.println("3. Tampilkan Seluruh Item Belanjaan");
+            System.out.println("4. Cari Item Belanjaan");
             System.out.println("0. Keluar dari program");
 
             System.out.print("Pilihan Menu: ");
@@ -46,14 +47,16 @@ public class EvaluasiPrektikum {
                     } else {
                         System.out.println("Tidak ada item yang di hapus, harap masukkan nama item yang benar!");
                     }
+                    break;
                 case 3:
                     System.out.println("Seluruh Item");
                     System.out.println("==============");
                     for (int i = 0; i < Nama.size(); i++) {
                         System.out.println(Nama.get(i) + " - " + Harga.get(i));
                     }
+                    break;
                 case 4:
-                    System.out.println("Masukkan Nama Item Belanjaan yang Dicari: ");
+                    System.out.print("Masukkan Nama Item Belanjaan yang Dicari: ");
                     String cariItem = input.nextLine();
 
                     int indexx = Nama.indexOf(cariItem);
@@ -61,10 +64,12 @@ public class EvaluasiPrektikum {
                     if (indexx != -1) {
                         System.out.println(Nama.get(indexx) + " - " + Harga.get(indexx));
                     } else {
-                        System.out.println("Tidak ada item yang di hapus, harap masukkan nama item yang benar!");
+                        System.out.println("Tidak ada item yang di cari, harap masukkan nama item yang benar!");
                     }
+                    break;
                 default:
                     System.out.println("Nomor yang Anda Masukkan Tidak Valid!!");
+                    break;
             }
         }while (pilihan !=0);
     }
