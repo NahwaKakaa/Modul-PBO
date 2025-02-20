@@ -13,9 +13,11 @@ public class StudiKasusA {
 
     public int[] hitungTotalPenjualanJenisBaju() {
         int[] totalPenjualanPerJenisBaju = new int[dataPenjualan[0].length];
-        for (int i=0; i < dataPenjualan.length; i++) {
-            for (int j = 0; j < dataPenjualan[i].length; j++) {
-                totalPenjualanPerJenisBaju[j] += dataPenjualan[i][j];
+        for (int[] minggu : dataPenjualan) {
+            int kolom = 0;
+            for (int penjualan : minggu) {
+                totalPenjualanPerJenisBaju[kolom] += penjualan;
+                kolom++;
             }
         }
         return totalPenjualanPerJenisBaju;
@@ -24,8 +26,8 @@ public class StudiKasusA {
     public int hitungTotalPenjualanSelamaSatuMinggu() {
         int[] totalPenjualanPerJenisBaju = hitungTotalPenjualanJenisBaju();
         int totalPenjualan = 0;
-        for (int i = 0; i < totalPenjualanPerJenisBaju.length; i++) {
-            totalPenjualan += totalPenjualanPerJenisBaju[i];
+        for (int penjualan : totalPenjualanPerJenisBaju) {
+            totalPenjualan += penjualan;
         }
         return totalPenjualan;
     }
