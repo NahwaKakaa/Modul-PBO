@@ -31,7 +31,7 @@ class Peminjaman {
     }
 }
 
-public class Perpustakaan {
+public class EvaluasiPraktikum {
     private ArrayList<Buku> daftarBuku = new ArrayList<>();
     private ArrayList<Peminjaman> daftarPeminjaman = new ArrayList<>();
 
@@ -87,21 +87,76 @@ public class Perpustakaan {
 
     public void kembalikanBuku(int indeksBuku, String tanggalPengembalian) {
         if (indeksBuku < 1 || indeksBuku > daftarPeminjaman.size()) {
-            System.out.println("Indeks buku tidak valis.");
+            System.out.println("Indeks buku tidak valid.");
             return;
         }
 
         Peminjaman peminjaman = daftarPeminjaman.get(indeksBuku - 1);
         if (peminjaman.tanggalPengembalian != null) {
-            system.out.println("Buku ini sudah dikembalikan.");
+            System.out.println("Buku ini sudah dikembalikan.");
             return;
         }
 
         peminjaman.kembalikanBuku((tanggalPengembalian));
         System.out.println("Buku berhasil dikembalikan!");
     }
-}
 
-public class EvaluasiPraktikum {
+    public static void main(String[] args) {
+        EvaluasiPraktikum perpustakaan = new EvaluasiPraktikum();
+        Scanner scanner = new Scanner(System.in);
 
+        while(true) {
+            System.out.println("\n=== Menu Perpustakaan ===");
+            System.out.println("1. Tambah Buku");
+            System.out.println("2. Lihat Buku");
+            System.out.println("3. Pinjam Buku");
+            System.out.println("4. Lihat Peminjaman");
+            System.out.println("5. Kembalikan Buku");
+            System.out.println("6. Keluar");
+            System.out.println("Piliha Menu: ");
+            int pilihan = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (pilihan) {
+                case 1:
+                    System.out.print("Masukkan judul buku: ");
+                    String judul = scanner.nextLine();
+                    System.out.print("Masukkan penulis buku: ");
+                    String penulis = scanner.nextLine();
+                    perpustakaan.tambahBuku(judul, penulis);
+                    break;
+                case 2:
+                    perpustakaan.lihatBuku();;
+                    break;
+                case 3:
+                    perpustakaan.lihatBuku();
+                    System.out.print("Masukkan nomor buku yang ingin dipinjam: ");
+                    int indeksBuku = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Masukkan nama peminjam: ");
+                    String namaPeminjam = scanner.nextLine();
+                    System.out.println("Masukkan tanggal pengembalian (YYYY-MM-DD): ");
+                    break;
+                case 4:
+                    perpustakaan.lihatPeminjaman();
+                    break;
+                case 5:
+                    perpustakaan.lihatPeminjaman();
+                    System.out.println("Masukkan nomor peminjaman yang ingin dikembalikan: ");
+                    int indeksPeminjaman = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Masukkan tanggal pengembalian (YYYY-MM-DD): ");
+                    String tanggalPengembalian = scanner.nextLine();
+                    perpustakaan.kembalikanBuku(indeksPeminjaman, tanggalPengembalian);
+                    break;
+                case 6:
+                    System.out.println("Terimakasih telah menggunakan sistem perpustakaan.");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("Pilihan tidak valid");
+            }
+
+        }
+    }
 }
