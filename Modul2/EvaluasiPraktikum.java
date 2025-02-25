@@ -113,7 +113,7 @@ public class EvaluasiPraktikum {
             System.out.println("4. Lihat Peminjaman");
             System.out.println("5. Kembalikan Buku");
             System.out.println("6. Keluar");
-            System.out.println("Piliha Menu: ");
+            System.out.print("Piliha Menu: ");
             int pilihan = scanner.nextInt();
             scanner.nextLine();
 
@@ -133,9 +133,9 @@ public class EvaluasiPraktikum {
                     System.out.print("Masukkan nomor buku yang ingin dipinjam: ");
                     int indeksBuku = scanner.nextInt();
                     scanner.nextLine();
-                    System.out.println("Masukkan nama peminjam: ");
+                    System.out.print("Masukkan nama peminjam: ");
                     String namaPeminjam = scanner.nextLine();
-                    System.out.println("Masukkan tanggal pengembalian (YYYY-MM-DD): ");
+                    System.out.print("Masukkan tanggal pengembalian (YYYY-MM-DD): ");
                     break;
                 case 4:
                     perpustakaan.lihatPeminjaman();
